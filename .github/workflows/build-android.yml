@@ -27,11 +27,7 @@ jobs:
         run: yarn install
 
       - name: Run build test
-        uses: mathiasvr/command-output@v1
-        id: run_tests
-        with:
-          token: ${{ secrets.EXPO_TOKEN }}
-          run: eas build --non-interactive
+        run: eas build --non-interactive
 
       - name: The initial build fails or succeeds
         if: ${{ always() }}

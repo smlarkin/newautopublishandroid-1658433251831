@@ -1,0 +1,37 @@
+name: build-android
+on:
+  push:
+    branches:
+      - main
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup repo
+        uses: actions/checkout@v2
+
+      - name: Setup Node
+        uses: actions/setup-node@v2
+        with:
+          node-version: 16.x
+
+      - name: Setup Expo and EAS
+        uses: expo/expo-github-action@v7
+        with:
+          expo-version: latest
+          eas-version: latest
+          token: ${{ secrets.EXPO_TOKEN }}
+
+      - name: Install dependencies
+        run: yarn install
+
+      - name: Install expect
+        run: sudo apt-get install expect
+
+      - name: Run publish test
+        run: expo publish --non-interactive
+
+      - name: The initial build fails or succeeds
+        if: ${{ always() }}
+        run: |
+          curl -X POST http://localhost:3001/report-build-status -H "Accept: application/json" -H "Content-Type: application/json" -H "Authorization: Bearer draftbit-is-greatest-ever" -d '{"state":"Publishing","platform":"Android","appId":65,"appName":"newautopublishandroid","userUuid":"Hlmo6Ay7","userFirstName":"Shawn","userLastName":"Larkin","userEmail":"shawn@draftbit.com","androidBuildType":"unbuilt"}'

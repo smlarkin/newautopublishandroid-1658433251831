@@ -1,8 +1,8 @@
 {
   "expo": {
-    "name": "newautopublishandroid1",
-    "slug": "newautopublishandroid1",
-    "scheme": "newautopublishandroid1",
+    "name": "newautopublishandroid12345",
+    "slug": "newautopublishandroid12345",
+    "scheme": "newautopublishandroid12345",
     "description": "My app powered by Draftbit",
     "privacy": "unlisted",
     "platforms": ["ios", "android", "web"],

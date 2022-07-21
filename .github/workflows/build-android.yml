@@ -35,4 +35,4 @@ jobs:
       - name: The initial build fails or succeeds
         if: ${{ always() }}
         run: |
-          curl -X POST https://68d2-2603-8000-cf00-2b-f448-8fea-e6e8-476.ngrok.io/report-build-status -H "Accept: application/json" -H "Content-Type: application/json" -H "Authorization: Bearer draftbit-is-greatest-ever" -d '{ "state":"Publishing","platform":"Android","appId":65,"appName":"newautopublishandroid","userUuid":"Hlmo6Ay7","userFirstName":"Shawn","userLastName":"Larkin","userEmail":"shawn@draftbit.com","androidBuildType":"unbuilt", "error": "${{ steps.cmd.outputs.stdout }}" }'
+          curl -X POST https://68d2-2603-8000-cf00-2b-f448-8fea-e6e8-476.ngrok.io/report-build-status -H "Accept: application/json" -H "Content-Type: application/json" -H "Authorization: Bearer draftbit-is-greatest-ever" -d '{ "state":"Publishing","platform":"Android","appId":65,"appName":"newautopublishandroid","userUuid":"Hlmo6Ay7","userFirstName":"Shawn","userLastName":"Larkin","userEmail":"shawn@draftbit.com","androidBuildType":"unbuilt", "error": "${{ steps.cmd.outputs.stderr }}" }'

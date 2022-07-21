@@ -30,7 +30,7 @@ jobs:
         run: sudo apt-get install expect
 
       - name: Run build test
-        run: expo build --non-interactive
+        run: eas build --non-interactive
 
       - name: The initial build fails or succeeds
         if: ${{ always() }}

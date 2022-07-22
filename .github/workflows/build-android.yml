@@ -26,6 +26,9 @@ jobs:
       - name: Install dependencies
         run: yarn install
 
+      - name: Install expect
+        run: sudo apt-get install expect
+
       - name: Run initial build
         uses: mathiasvr/command-output@v1
         id: cmd

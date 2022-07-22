@@ -34,8 +34,6 @@ jobs:
         id: cmd
         with:
           run: eas build --platform android --non-interactive
-
-      - name: Format stderr for JSON
         env:
           TESTER: echo ${{ steps.cmd.outputs.stderr }} | jq -R
 
